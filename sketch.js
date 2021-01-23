@@ -69,7 +69,7 @@ function draw() {
 
 function mousePressed() {
   
-  if (!locked && !choiseStop && mouseY<height && mouseX>=0 && video_loaded) {
+  if (!locked && !choiseStop && mouseY<height && mouseY>=0 && video_loaded) {
     sx = mouseX;
     sy = mouseY;
     bx = mouseX;
