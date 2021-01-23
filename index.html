@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head>
+    <script src="p5.js"></script>
+    <script src="p5.sound.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Video Mask Editing</title>
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <meta charset="utf-8">
+    
+  </head>
+  <body>
+  <h1>Video Mask Editing</h1>
+  <div id="message"></div>
+  <input type="file" accept="video/*">
+  <button onclick="confirm_stop()">stop</button>
+  <button onclick="full_screen()">full screen</button>
+  <button onclick="video_play()">play/pause</button>
+  <input type="range" min="1" max="100" value="50" class="slider" id="slider">
+    
+    <script src="sketch.js"></script>
+    <script src="read_video.js"></script>
+    
+    
+
+</body></html>
