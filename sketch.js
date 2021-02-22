@@ -116,7 +116,7 @@ function confirm_stop(){
 function rideo_player() {
   fingers.loadPixels();
 
-  var ratioHeight = (fingers.height/fingers.width)*(width/fingers.width);
+  var ratioHeight = fingers.height*(width/fingers.width);
   image(fingers, 0, 0,width,ratioHeight);
 
 
