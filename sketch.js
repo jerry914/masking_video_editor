@@ -91,7 +91,7 @@ function mouseReleased() {
     locked = false;
     choiseStop = true;
     temp_data = {
-      start_time: floor(fingers.time()),
+      start_time: fingers.time(),
       pos_x: sx, 
       pos_y: sy, 
       wid: bx-sx, 
@@ -102,7 +102,7 @@ function mouseReleased() {
 
 function confirm_stop(){
   if(choiseStop){
-    let st = floor(fingers.time());
+    let st = fingers.time();
     temp_data['end_time']=st;
     // console.log(temp_data);
     rects.push(new Rect(temp_data.start_time, temp_data.end_time, temp_data.pos_x, temp_data.pos_y, temp_data.wid, temp_data.hei));
@@ -121,7 +121,7 @@ function rideo_player() {
   image(fingers, 0, 0,width,ratioHeight);
 
 
-  let cur = floor(fingers.time());
+  let cur = fingers.time();
 
   for (var r = 0; r < rects.length; r++) {
     let rec = rects[r];
