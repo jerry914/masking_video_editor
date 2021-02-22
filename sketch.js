@@ -89,7 +89,7 @@ function mousePressed() {
     fingers.pause();
     playing = false;
   }
-  if(mouseY<0){
+  if(mouseY<0 && mouseY>=-25){
     slider_locked = true;
   }
 }
@@ -115,7 +115,7 @@ function mouseReleased() {
     fingers.play();
     playing = true;
   }
-  if(mouseY<0){
+  if(mouseY<0 && mouseY>=-25){
     slider_locked = false;
   }
 }
