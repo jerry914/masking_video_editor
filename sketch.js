@@ -58,7 +58,11 @@ function draw() {
     }
 
     background(220);
-    time_slide.value = map(fingers.time(),0,dur,0,100);
+
+    if(!locked){
+      slide.value = map(fingers.time(),0,dur,0,100);
+    }
+    // time_slide.value = map(fingers.time(),0,dur,0,100);
 
     rideo_player();
 
@@ -76,18 +80,24 @@ function mousePressed() {
     bx = mouseX;
     by = mouseY;
     locked = true;
+
+    fingers.pause();
+    playing = false;
+  }
+  if(mouseY<0){
+    locked = true;
   }
 }
 
 function mouseDragged() {
-  if (locked && !choiseStop) {
+  if (locked && !choiseStop && mouseY>=0) {
     bx = mouseX;
     by = mouseY;
   }
 }
 
 function mouseReleased() {
-  if(!choiseStop && locked){
+  if(!choiseStop && locked && mouseY>=0){
     locked = false;
     choiseStop = true;
     temp_data = {
@@ -97,6 +107,11 @@ function mouseReleased() {
       wid: bx-sx, 
       hei: by-sy
     };
+    fingers.play();
+    playing = true;
+  }
+  if(mouseY<0){
+    locked = false;
   }
 }
 
