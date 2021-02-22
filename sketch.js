@@ -11,11 +11,15 @@ let playing = false;
 
 let video_loaded = false;
 
+var slide = document.getElementById('slider');
+var time_slide = document.getElementById('time_slide');
+
 function setup() {
   createCanvas(windowWidth, windowHeight+80);
   
   noStroke();
 
+  time_slide.disable = true;
 }
 
 function load_video(src){
@@ -37,12 +41,12 @@ function video_play(){
   }
 }
 
-var slide = document.getElementById('slider')
 
 slide.onchange = function() {
   let jump_time = map(this.value,0,100,0,dur);
   fingers.time(jump_time);
 }
+
 function full_screen(){
   let fs = fullscreen();
   fullscreen(!fs);
@@ -55,9 +59,8 @@ function draw() {
       console.log(dur);
     }
 
-
     background(220);
-
+    time_slide.value = map(fingers.time(),0,100,0,dur);
 
     rideo_player();
 
