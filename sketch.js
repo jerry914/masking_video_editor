@@ -115,7 +115,7 @@ function confirm_stop(){
 
 function rideo_player() {
   fingers.loadPixels();
-  image(fingers, 0, 0, width, height);
+  image(fingers, 0, 0);
 
 
   let cur = floor(fingers.time());
