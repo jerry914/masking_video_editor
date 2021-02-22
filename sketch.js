@@ -15,7 +15,6 @@ function setup() {
   createCanvas(windowWidth, windowHeight+80);
   
   noStroke();
-  document.getElementById("time_slide").disabled = true;
 }
 
 function load_video(src){
@@ -38,7 +37,6 @@ function video_play(){
 }
 
 var slide = document.getElementById('slider');
-var time_slide = document.getElementById('time_slide');
 
 slide.onchange = function() {
   let jump_time = map(this.value,0,100,0,dur);
@@ -62,7 +60,11 @@ function draw() {
     if(!locked){
       slide.value = map(fingers.time(),0,dur,0,100);
     }
-    // time_slide.value = map(fingers.time(),0,dur,0,100);
+    else{
+      let jump_time = map(slide.value,0,100,0,dur);
+      fingers.time(jump_time);
+    }
+
 
     rideo_player();
 
