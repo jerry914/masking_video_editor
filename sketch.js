@@ -11,15 +11,11 @@ let playing = false;
 
 let video_loaded = false;
 
-var slide = document.getElementById('slider');
-var time_slide = document.getElementById('time_slide');
-
 function setup() {
   createCanvas(windowWidth, windowHeight+80);
   
   noStroke();
-
-  time_slide.disable = true;
+  document.getElementById("time_slide").disabled = true;
 }
 
 function load_video(src){
@@ -41,6 +37,8 @@ function video_play(){
   }
 }
 
+var slide = document.getElementById('slider');
+var time_slide = document.getElementById('time_slide');
 
 slide.onchange = function() {
   let jump_time = map(this.value,0,100,0,dur);
