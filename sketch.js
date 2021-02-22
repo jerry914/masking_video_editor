@@ -104,10 +104,10 @@ function mouseReleased() {
     choiseStop = true;
     temp_data = {
       start_time: fingers.time(),
-      pos_x: sx, 
-      pos_y: sy, 
-      wid: bx-sx, 
-      hei: by-sy
+      pos_x: min(bx,sx), 
+      pos_y: min(by,sy), 
+      wid: abs(bx-sx), 
+      hei: abs(by-sy)
     };
     fingers.play();
     playing = true;
