@@ -59,7 +59,9 @@ function draw() {
     background(220);
 
     if(!slider_locked){
-      slide.value = map(fingers.time(),0,dur,0,100);
+      if(fingers.time()!=0){
+        slide.value = map(fingers.time(),0,dur,0,100);
+      }
     }
     else{
       let jump_time = map(slide.value,0,100,0,dur);
