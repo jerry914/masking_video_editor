@@ -5,6 +5,7 @@ let dur;
 let rects = [];
 let sx, sy, bx, by;
 let locked = false;
+let slider_locked = false;
 let choiseStop = false;
 let temp_data;
 let playing = false;
@@ -57,7 +58,7 @@ function draw() {
 
     background(220);
 
-    if(!locked){
+    if(!slider_locked){
       slide.value = map(fingers.time(),0,dur,0,100);
     }
     else{
@@ -83,11 +84,10 @@ function mousePressed() {
     by = mouseY;
     locked = true;
 
-    fingers.pause();
-    playing = false;
+    video_play();
   }
   if(mouseY<0){
-    locked = true;
+    slider_locked = true;
   }
 }
 
@@ -109,11 +109,10 @@ function mouseReleased() {
       wid: abs(bx-sx), 
       hei: abs(by-sy)
     };
-    fingers.play();
-    playing = true;
+    video_play();
   }
   if(mouseY<0){
-    locked = false;
+    slider_locked = false;
   }
 }
 
