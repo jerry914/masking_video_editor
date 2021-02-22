@@ -58,7 +58,7 @@ function draw() {
     }
 
     background(220);
-    time_slide.value = map(fingers.time(),0,100,0,dur);
+    time_slide.value = map(fingers.time(),0,dur,0,100);
 
     rideo_player();
 
