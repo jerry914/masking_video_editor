@@ -59,13 +59,13 @@ function draw() {
     background(220);
 
     if(!slider_locked){
-      if(fingers.time()!=0){
         slide.value = map(fingers.time(),0,dur,0,100);
-      }
     }
     else{
       let jump_time = map(slide.value,0,100,0,dur);
-      fingers.time(jump_time);
+      if(jump_time!=0){
+        fingers.time(jump_time);
+      }
     }
 
 
@@ -86,7 +86,8 @@ function mousePressed() {
     by = mouseY;
     locked = true;
 
-    video_play();
+    fingers.pause();
+    playing = false;
   }
   if(mouseY<0){
     slider_locked = true;
@@ -111,7 +112,8 @@ function mouseReleased() {
       wid: abs(bx-sx), 
       hei: abs(by-sy)
     };
-    video_play();
+    fingers.play();
+    playing = true;
   }
   if(mouseY<0){
     slider_locked = false;
